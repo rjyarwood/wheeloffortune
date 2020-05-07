@@ -4,6 +4,7 @@ from tkinter import *
 import numpy as np
 from Board import Board
 from QuestionInterface import Question
+from answerPanel import AnswerPanel
 
 root = Tk()
 root.title("Wheel of Fortune")
@@ -14,10 +15,12 @@ board = Board(root=root, question=Question(prompt="Town",
                                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                                     [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
                                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]),
-                answer="Beloit"))
-board.createPromptPanel()
+                answer="BELOIT"))
 display = board.createBoard()
 
 display.pack(fill=BOTH)
+board.promptPanel.pack(fill=BOTH)
+
+AnswerPanel(root=root, board=board)
 
 root.mainloop()
