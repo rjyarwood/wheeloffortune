@@ -13,9 +13,9 @@ root['bg'] = 'deep sky blue'
 board = Board(root=root, question=Question(prompt="Town",
                 letterloc=np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+                                    [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
                                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]),
-                answer="BELOIT"))
+                answer="BELBIT"))
 display = board.createBoard()
 
 display.pack(fill=BOTH)

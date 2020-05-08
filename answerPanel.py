@@ -25,14 +25,37 @@ class AnswerPanel:
     def checkForLetter(self, letter):
         answer = self.Board.question.getAnswer()
         found = False
+        count = 0
 
         for char in answer:
             if char == letter:
                 found = True
-                print("Found")
+                print("found")
+                print(letter)
+                print(count)
+                self.updateBoard(count=count, letter=letter)
             else:
                 print("Not Correct")
 
+            count += 1
+
         if not found:
-            print(1)
             self.guessedLetters.set(self.guessedLetters.get() + " " + letter)
+
+    def updateBoard(self, count, letter):
+        letterLoc = self.Board.question.getLetterLoc().copy()
+        x = 0
+        y = 0
+        for row in letterLoc:
+            y = 0
+            for cell in row:
+                if cell == self.Board.EMPTYLABEL:
+                    if count == 0:
+                        (self.Board.solutionVar[x][y]).set(letter)
+                        break
+                    else:
+                        count -= 1
+                y += 1
+            x += 1
+
+        self.Board.root.update()
